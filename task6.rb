@@ -1,4 +1,4 @@
-list = Hash.new{|h,k| h[k] = Hash.new(0)}
+list = {} #Hash.new{|h,k| h[k] = Hash.new(0)}
 loop do
   print "Введите назв. товара "
   product_name = gets.chomp
@@ -7,14 +7,14 @@ loop do
   price = gets.chomp.to_f
   print "Введите кол-во товара "
   quantity = gets.chomp.to_i
-list[product_name] = {price => quantity}
+list[product_name] = {price: price, quantity: quantity}
 end
 puts list
 
 sum = 0
-list.each do |key, value|
-  subtotal = list[key].keys[0] * list[key].values[0]
-  puts key + " " + subtotal.to_s
+list.each do |product, value|
+  subtotal = list[product][:price] * list[product][:quantity]
+  puts product + " " + subtotal.to_s
   sum += subtotal
 end
 puts sum

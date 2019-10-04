@@ -1,3 +1,1 @@
-arr2 = Array.new
-(10..100).step(5) {|i| arr2 << i}
-puts arr2.inspect
+puts (10..100).step(5).to_a.inspect
